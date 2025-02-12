@@ -51,12 +51,12 @@
     "*.ts": [
       "prettier --write",
       "eslint --fix",
-      "jest --watchAll"
+      "jest"
     ],
     "*.tsx": [
       "prettier --write",
       "eslint --fix",
-      "jest --watchAll"
+      "jest"
     ]
   },
   "commitlint": {
