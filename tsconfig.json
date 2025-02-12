@@ -8,6 +8,8 @@
       "@screens/*": ["src/screens/*"],
       "@utils/*": ["src/utils/*"],
       "@navigation/*": ["src/navigation/*"],
+      "@theme/*": ["src/theme/*"],
+      "@types/*": ["src/types/*"],
     }
   },
   "exclude": ["__tests__/**/*-test.ts"]
