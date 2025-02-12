@@ -53,6 +53,7 @@ export default [
       'react/no-unescaped-entities': 'off',
       'react/function-component-definition': 'off',
       'import/no-anonymous-default-export': 'off',
+      'import/prefer-default-export': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
