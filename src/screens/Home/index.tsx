@@ -6,7 +6,7 @@ import { MainContainer } from './styles';
 function HomeScreen() {
   return (
     <MainContainer>
-      <Text>Home Screen</Text>
+      <Text style={{ fontFamily: 'Inter_900Black' }}>Home Screen</Text>
     </MainContainer>
   );
 }
