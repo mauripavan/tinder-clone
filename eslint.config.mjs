@@ -79,6 +79,7 @@ export default [
         },
       ],
       'newline-before-return': 'error',
+      'implicit-arrow-linebreak': 'off',
       'import/newline-after-import': [
         'error',
         {
@@ -94,6 +95,7 @@ export default [
           },
         },
       ],
+      'object-curly-newline': 'off',
     },
   },
 ];
