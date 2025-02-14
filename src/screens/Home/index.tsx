@@ -1,12 +1,8 @@
 import React from 'react';
-import {
-  TextRegular,
-  TextBold,
-  TextH1,
-  TextH2,
-  TextH3,
-  TextH4,
-} from '@components/Typography';
+import { TextH1 } from '@components/Typography';
+import Check from '@assets/icons/check.svg';
+import CheckRound from '@assets/icons/check-round.svg';
+import theme from '@theme/index';
 
 import { MainContainer } from './styles';
 
@@ -14,11 +10,8 @@ function HomeScreen() {
   return (
     <MainContainer>
       <TextH1>Home Screen</TextH1>
-      <TextH2>Home Screen</TextH2>
-      <TextH3>Home Screen</TextH3>
-      <TextH4>Home Screen</TextH4>
-      <TextBold>Home Screen</TextBold>
-      <TextRegular>Home Screen</TextRegular>
+      <Check width={140} height={140} fill={theme.colors.white} />
+      <CheckRound width={140} height={140} fill={theme.colors.white} />
     </MainContainer>
   );
 }
