@@ -10,8 +10,9 @@
       "@navigation/*": ["src/navigation/*"],
       "@theme/*": ["src/theme/*"],
       "@types/*": ["src/types/*"],
-      "@assets/*": ["assets/*"] 
-    }
+      "@assets/*": ["assets/*"], 
+      "@constants/*": ["src/constants/*"], 
+    },
   },
   "exclude": ["__tests__/**/*-test.ts"]
 }

@@ -34,7 +34,7 @@
     "react-native-screens": "~4.4.0",
     "react-native-svg": "15.8.0",
     "styled-components": "^6.1.15",
-    "expo-linear-gradient": "~14.0.2"
+    "expo-constants": "~17.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
