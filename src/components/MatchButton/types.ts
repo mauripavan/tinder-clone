@@ -1,3 +1,4 @@
+import { Direction } from '@screens/Home/types';
 import { ColorValue } from 'react-native';
 import { SvgProps } from 'react-native-svg';
 
@@ -6,8 +7,9 @@ export interface IMatchButtonItem {
   Icon: React.FC<SvgProps>;
   backgroundColor: string;
   iconColor: ColorValue;
+  direction: Direction | null;
 }
 export interface IMatchButton {
   item: IMatchButtonItem;
-  onPress: () => void;
+  onPress: (direction: Direction | null) => void;
 }

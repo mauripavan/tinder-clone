@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { Animated, View } from 'react-native';
 import { TextH2, TextRegular } from '@components/Typography';
 import { CONNECT_BUTTONS_DATA, MATCH_BUTTONS_DATA } from '@constants/data';
 import ConnectButton from '@components/ConnectButton';
 import Info from '@assets/icons/info.svg';
 import theme from '@theme/index';
 import MatchButton from '@components/MatchButton';
+import { Direction } from '@screens/Home/types';
+import { IS_ANDROID } from '@constants/index';
+import {
+  heightPercentageToDP,
+  widthPercentageToDP,
+} from 'react-native-responsive-screen';
 
 import { ICard } from './types';
 import {
@@ -13,22 +19,42 @@ import {
   ConnectButtonsWrapper,
   CustomImage,
   InfoButton,
-  MainContainer,
   MatchButtonsWrapper,
   SubContainer,
 } from './styles';
 
-const Card: React.FC<ICard> = ({ image, name, age, city, country, width }) => {
+const Card: React.FC<ICard> = ({
+  image,
+  name,
+  age,
+  city,
+  country,
+  width,
+  onSwipe,
+}) => {
   const [selected, setSelected] = useState(0);
 
   const handleConnectPress = (key: number) => {
     setSelected(key);
   };
 
-  const handleMatchPress = () => {};
+  const handleMatchPress = (direction: Direction | null) => {
+    if (direction !== null && onSwipe) {
+      onSwipe(direction);
+    }
+  };
 
   return (
-    <MainContainer width={width}>
+    <Animated.View
+      style={{
+        borderRadius: 30,
+        overflow: 'hidden',
+        width: !width ? widthPercentageToDP('83%') : width,
+        height: IS_ANDROID
+          ? heightPercentageToDP('88%')
+          : heightPercentageToDP('81%'),
+      }}
+    >
       <CustomImage source={image} resizeMode="cover">
         <SubContainer>
           <ConnectButtonsWrapper>
@@ -57,14 +83,14 @@ const Card: React.FC<ICard> = ({ image, name, age, city, country, width }) => {
                 <MatchButton
                   key={item.id}
                   item={item}
-                  onPress={handleMatchPress}
+                  onPress={() => handleMatchPress(item.direction)}
                 />
               ))}
             </MatchButtonsWrapper>
           </View>
         </SubContainer>
       </CustomImage>
-    </MainContainer>
+    </Animated.View>
   );
 };
 

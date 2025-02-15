@@ -11,6 +11,7 @@ import { ICard } from '@components/Card/types';
 import { ConnectButtonDataType } from '@components/ConnectButton/types';
 import theme from '@theme/index';
 import { IMatchButtonItem } from '@components/MatchButton/types';
+import { Direction } from '@screens/Home/types';
 
 export const MOCKED_CARDS_DATA: ICard[] = [
   {
@@ -26,8 +27,8 @@ export const MOCKED_CARDS_DATA: ICard[] = [
     image: Person2,
     name: 'Beatriz',
     age: 22,
-    city: '22 Km',
-    country: 'Lima',
+    city: 'Lima',
+    country: 'Perú',
   },
   {
     id: 3,
@@ -63,17 +64,20 @@ export const MATCH_BUTTONS_DATA: IMatchButtonItem[] = [
     Icon: Close,
     backgroundColor: theme.colors.neutral,
     iconColor: theme.colors.white,
+    direction: Direction.left,
   },
   {
     id: 2,
     Icon: HeartFullFilled,
     backgroundColor: theme.colors.white,
     iconColor: theme.colors.tertiary,
+    direction: null,
   },
   {
     id: 3,
     Icon: Check,
     backgroundColor: theme.colors.primary,
     iconColor: theme.colors.white,
+    direction: Direction.right,
   },
 ];

@@ -13,7 +13,7 @@ export const ImageWrapper = styled(View)`
 `;
 
 export const StyledImage = styled(Image)<IStyledImage>`
-  width: ${wp(15)};
+  width: ${wp(15)}px;
   height: ${hp(7)}px;
   padding: 2px;
   border-radius: 99px;

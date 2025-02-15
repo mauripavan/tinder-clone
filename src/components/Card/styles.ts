@@ -1,19 +1,9 @@
-import { IS_ANDROID } from '@constants/index';
 import { ImageBackground, Pressable, View } from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import { styled } from 'styled-components';
-
-import { ICard } from './types';
-
-export const MainContainer = styled(View)<Pick<ICard, 'width'>>`
-  border-radius: 30px;
-  overflow: hidden;
-  width: ${({ width }) => (!width ? wp('83%') : width)};
-  height: ${IS_ANDROID ? hp('88%') : hp('81%')};
-`;
 
 export const CustomImage = styled(ImageBackground)`
   flex: 1;

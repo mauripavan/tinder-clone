@@ -1,4 +1,5 @@
-import { ImageSourcePropType } from 'react-native';
+import { Direction } from '@screens/Home/types';
+import { Animated, ImageSourcePropType } from 'react-native';
 
 export interface ICard {
   id: number;
@@ -7,5 +8,6 @@ export interface ICard {
   age: number;
   city: string;
   country: string;
-  width?: false | number;
+  width?: number | false | undefined | Animated.Value;
+  onSwipe?: (direction: Direction | null) => void;
 }
