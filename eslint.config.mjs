@@ -95,6 +95,13 @@ export default [
           },
         },
       ],
+      'no-param-reassign': [
+        'error',
+        {
+          props: true,
+          ignorePropertyModificationsFor: ['state'], 
+        },
+      ],
       'object-curly-newline': 'off',
     },
   },

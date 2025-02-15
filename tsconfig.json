@@ -12,6 +12,7 @@
       "@types/*": ["src/types/*"],
       "@assets/*": ["assets/*"], 
       "@constants/*": ["src/constants/*"], 
+      "@redux/*": ["src/redux/*"], 
     },
   },
   "exclude": ["__tests__/**/*-test.ts"]

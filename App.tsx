@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
+import { Provider } from 'react-redux';
 import theme from 'src/theme';
 import { Quicksand_700Bold, useFonts } from '@expo-google-fonts/quicksand';
 import {
@@ -7,6 +8,7 @@ import {
   MavenPro_700Bold,
 } from '@expo-google-fonts/maven-pro';
 import * as SplashScreen from 'expo-splash-screen';
+import { store } from '@redux/store';
 
 import NavigationContainer from './src/navigation';
 
@@ -32,8 +34,10 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <NavigationContainer />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <NavigationContainer />
+      </ThemeProvider>
+    </Provider>
   );
 }
