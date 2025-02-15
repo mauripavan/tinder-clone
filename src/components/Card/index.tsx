@@ -12,6 +12,8 @@ import {
   heightPercentageToDP,
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
+import { useDispatch } from 'react-redux';
+import { setGradientColors } from '@redux/features/backgroundSlice';
 
 import { ICard } from './types';
 import {
@@ -33,9 +35,17 @@ const Card: React.FC<ICard> = ({
   onSwipe,
 }) => {
   const [selected, setSelected] = useState(0);
+  const dispatch = useDispatch();
+
+  const gradientBackgrounds = [
+    theme.colors.gradientTertiaty,
+    theme.colors.gradientQuaternary,
+    theme.colors.gradientPrimary,
+  ];
 
   const handleConnectPress = (key: number) => {
     setSelected(key);
+    dispatch(setGradientColors(gradientBackgrounds[key]));
   };
 
   const handleMatchPress = (direction: Direction | null) => {

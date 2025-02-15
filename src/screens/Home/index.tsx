@@ -8,6 +8,8 @@ import { MOCKED_CARDS_DATA } from '@constants/data';
 import { Animated, Easing } from 'react-native';
 import { widthPercentageToDP } from 'react-native-responsive-screen';
 import { SCREEN_WIDTH } from '@constants/index';
+import { useSelector } from 'react-redux';
+import { RootState } from '@redux/store';
 
 import { CardWrapper, MainContainer, StyledAnimatedView } from './styles';
 import { Direction } from './types';
@@ -22,6 +24,9 @@ function HomeScreen() {
     new Animated.Value(widthPercentageToDP('79%')),
   ).current;
   const [currentCardIndex, setCurrentCardIndex] = useState(cards.length - 1);
+  const gradientColors = useSelector(
+    (state: RootState) => state.background.gradientColors,
+  );
 
   useEffect(() => {
     translateXAnim.setValue(0);
@@ -101,7 +106,7 @@ function HomeScreen() {
             id={item.id}
             age={item.age}
             country={item.country}
-            city={item.country}
+            city={item.city}
             image={item.image}
             name={item.name}
             width={isTopCard ? undefined : backCardWidth}
@@ -114,7 +119,7 @@ function HomeScreen() {
   return (
     <Layout
       isGradient
-      gradientColor={theme.colors.gradientTertiaty}
+      gradientColor={gradientColors}
       backgroundColor={theme.colors.primary}
     >
       <MainContainer>
