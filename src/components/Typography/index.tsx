@@ -7,7 +7,7 @@ import { ITypographyProps, Typography } from './types';
 const getResponsiveSize = (size: number) => RFValue(size);
 
 const TextRegular = styled(Text)<ITypographyProps>`
-  color: ${({ color, theme }) => color || theme.colors.black};
+  color: ${({ color, theme }) => String(color) || theme.colors.black};
   font-family: ${Typography.maven_reg};
   font-size: ${({ theme }) =>
     getResponsiveSize(theme.typography.fontSizes.regular)}px;
@@ -16,7 +16,7 @@ const TextRegular = styled(Text)<ITypographyProps>`
 `;
 
 const TextBold = styled(Text)<ITypographyProps>`
-  color: ${({ color, theme }) => color || theme.colors.black};
+  color: ${({ color, theme }) => String(color) || theme.colors.black};
   font-family: ${Typography.maven_bold};
   font-size: ${({ theme }) =>
     getResponsiveSize(theme.typography.fontSizes.small)}px;
@@ -25,7 +25,7 @@ const TextBold = styled(Text)<ITypographyProps>`
 `;
 
 const TextH1 = styled(Text)<ITypographyProps>`
-  color: ${({ color, theme }) => color || theme.colors.black};
+  color: ${({ color, theme }) => String(color) || theme.colors.black};
   font-family: ${Typography.quicksand_bold};
   font-size: ${({ theme }) =>
     getResponsiveSize(theme.typography.fontSizes.xlarge)}px;
@@ -34,7 +34,7 @@ const TextH1 = styled(Text)<ITypographyProps>`
 `;
 
 const TextH2 = styled(Text)<ITypographyProps>`
-  color: ${({ color, theme }) => color || theme.colors.black};
+  color: ${({ color, theme }) => String(color) || theme.colors.black};
   font-family: ${Typography.quicksand_bold};
   font-size: ${({ theme }) =>
     getResponsiveSize(theme.typography.fontSizes.large)}px;
@@ -43,7 +43,7 @@ const TextH2 = styled(Text)<ITypographyProps>`
 `;
 
 const TextH3 = styled(Text)<ITypographyProps>`
-  color: ${({ color, theme }) => color || theme.colors.black};
+  color: ${({ color, theme }) => String(color) || theme.colors.black};
   font-family: ${Typography.maven_bold};
   font-size: ${({ theme }) =>
     getResponsiveSize(theme.typography.fontSizes.medium)}px;
@@ -52,7 +52,7 @@ const TextH3 = styled(Text)<ITypographyProps>`
 `;
 
 const TextH4 = styled(Text)<ITypographyProps>`
-  color: ${({ color, theme }) => color || theme.colors.black};
+  color: ${({ color, theme }) => String(color) || theme.colors.black};
   font-family: ${Typography.maven_bold};
   font-size: ${({ theme }) =>
     getResponsiveSize(theme.typography.fontSizes.regular)}px;

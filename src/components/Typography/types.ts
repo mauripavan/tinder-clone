@@ -1,7 +1,7 @@
-import theme from '@theme/index';
+import { ColorValue } from 'react-native';
 
 export interface ITypographyProps {
-  color?: typeof theme.colors;
+  color?: ColorValue;
 }
 
 export enum Typography {
