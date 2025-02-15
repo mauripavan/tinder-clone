@@ -9,4 +9,5 @@ export interface LayoutProps {
 
 export interface IMainLayoutContainer {
   color?: string;
+  isGradient: boolean;
 }

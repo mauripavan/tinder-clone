@@ -14,7 +14,7 @@ const Layout: React.FC<LayoutProps> = ({
   backgroundColor,
   isGradient,
 }) => (
-  <MainContainer>
+  <MainContainer isGradient>
     {isGradient ? (
       <>
         <BackgroundGradient
@@ -25,7 +25,9 @@ const Layout: React.FC<LayoutProps> = ({
         </CustomImageBackground>
       </>
     ) : (
-      <MainContainer color={backgroundColor}>{children}</MainContainer>
+      <MainContainer isGradient={false} color={backgroundColor}>
+        {children}
+      </MainContainer>
     )}
   </MainContainer>
 );
