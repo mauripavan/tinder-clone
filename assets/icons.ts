@@ -7,6 +7,7 @@ import Clear from './icons/clear.svg';
 import Close from './icons/close.svg';
 import Exit from './icons/exit.svg';
 import HeartOutlined from './icons/heart-outlined.svg';
+import HeartFullfiled from './icons/heart-fullfiled.svg';
 import Info from './icons/info.svg';
 import Lecafe from './icons/lecafe.svg';
 import Messages from './icons/messages.svg';
@@ -14,6 +15,8 @@ import MoreVertical from './icons/more-vertical-alt.svg';
 import Profile from './icons/profile.svg';
 import Settings from './icons/settings.svg';
 import Stories from './icons/stories.svg';
+import Menu from './icons/menu.svg';
+import Filter from './icons/filter.svg';
 
 export const icons = {
   CheckRound,
@@ -25,6 +28,7 @@ export const icons = {
   Close,
   Exit,
   HeartOutlined,
+  HeartFullfiled,
   Info,
   Lecafe,
   Messages,
@@ -32,4 +36,6 @@ export const icons = {
   Profile,
   Settings,
   Stories,
+  Menu,
+  Filter,
 };
