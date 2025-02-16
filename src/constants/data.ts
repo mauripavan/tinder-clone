@@ -13,7 +13,7 @@ import theme from '@theme/index';
 import { IMatchButtonItem } from '@components/MatchButton/types';
 import { Direction } from '@screens/Home/types';
 
-export const MOCKED_CARDS_DATA: ICard[] = [
+export const MOCKED_RELATIONSHIP_CARDS_DATA: ICard[] = [
   {
     id: 1,
     image: Person1,
@@ -40,6 +40,60 @@ export const MOCKED_CARDS_DATA: ICard[] = [
   },
 ];
 
+export const MOCKED_DATE_CARDS_DATA: ICard[] = [
+  {
+    id: 1,
+    image: Person3,
+    name: 'Carmen',
+    age: 22,
+    city: 'Miraflores',
+    country: 'Perú',
+  },
+  {
+    id: 2,
+    image: Person1,
+    name: 'Sandra Gómez',
+    age: 21,
+    city: 'Surco',
+    country: 'Perú',
+  },
+  {
+    id: 3,
+    image: Person2,
+    name: 'Beatriz',
+    age: 22,
+    city: 'Lima',
+    country: 'Perú',
+  },
+];
+
+export const MOCKED_FRIENDSHIP_CARDS_DATA: ICard[] = [
+  {
+    id: 1,
+    image: Person2,
+    name: 'Beatriz',
+    age: 22,
+    city: 'Lima',
+    country: 'Perú',
+  },
+  {
+    id: 2,
+    image: Person3,
+    name: 'Carmen',
+    age: 22,
+    city: 'Miraflores',
+    country: 'Perú',
+  },
+  {
+    id: 3,
+    image: Person1,
+    name: 'Sandra Gómez',
+    age: 21,
+    city: 'Surco',
+    country: 'Perú',
+  },
+];
+
 export const CONNECT_BUTTONS_DATA: ConnectButtonDataType[] = [
   {
     id: 1,
@@ -60,21 +114,21 @@ export const CONNECT_BUTTONS_DATA: ConnectButtonDataType[] = [
 
 export const MATCH_BUTTONS_DATA: IMatchButtonItem[] = [
   {
-    id: 1,
+    id: 0,
     Icon: Close,
     backgroundColor: theme.colors.neutral,
     iconColor: theme.colors.white,
     direction: Direction.left,
   },
   {
-    id: 2,
+    id: 1,
     Icon: HeartFullFilled,
     backgroundColor: theme.colors.white,
     iconColor: theme.colors.tertiary,
     direction: null,
   },
   {
-    id: 3,
+    id: 2,
     Icon: Check,
     backgroundColor: theme.colors.primary,
     iconColor: theme.colors.white,

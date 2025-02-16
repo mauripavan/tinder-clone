@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Animated, View } from 'react-native';
 import { TextH2, TextRegular } from '@components/Typography';
 import { CONNECT_BUTTONS_DATA, MATCH_BUTTONS_DATA } from '@constants/data';
@@ -12,8 +12,10 @@ import {
   heightPercentageToDP,
   widthPercentageToDP,
 } from 'react-native-responsive-screen';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setGradientColors } from '@redux/features/backgroundSlice';
+import { setIndex } from '@redux/features/cardsSlice';
+import { RootState } from '@redux/store';
 
 import { ICard } from './types';
 import {
@@ -34,7 +36,7 @@ const Card: React.FC<ICard> = ({
   width,
   onSwipe,
 }) => {
-  const [selected, setSelected] = useState(0);
+  const indexSelected = useSelector((state: RootState) => state.cards.index);
   const dispatch = useDispatch();
 
   const gradientBackgrounds = [
@@ -44,8 +46,9 @@ const Card: React.FC<ICard> = ({
   ];
 
   const handleConnectPress = (key: number) => {
-    setSelected(key);
+    setIndex(key);
     dispatch(setGradientColors(gradientBackgrounds[key]));
+    dispatch(setIndex(key));
   };
 
   const handleMatchPress = (direction: Direction | null) => {
@@ -71,7 +74,7 @@ const Card: React.FC<ICard> = ({
             {CONNECT_BUTTONS_DATA.map((item, key) => (
               <ConnectButton
                 key={item.id}
-                selected={selected === key}
+                selected={indexSelected === key}
                 label={item.label}
                 image={item.image}
                 onPress={() => handleConnectPress(key)}

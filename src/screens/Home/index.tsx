@@ -4,18 +4,21 @@ import theme from '@theme/index';
 import Card from '@components/Card';
 import Menu from '@assets/icons/menu.svg';
 import Filter from '@assets/icons/filter.svg';
-import { MOCKED_CARDS_DATA } from '@constants/data';
 import { Animated, Easing } from 'react-native';
 import { widthPercentageToDP } from 'react-native-responsive-screen';
 import { SCREEN_WIDTH } from '@constants/index';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@redux/store';
+import { updateCards } from '@redux/features/cardsSlice';
 
 import { CardWrapper, MainContainer, StyledAnimatedView } from './styles';
 import { Direction } from './types';
 
 function HomeScreen() {
-  const [cards, setCards] = useState(MOCKED_CARDS_DATA);
+  const indexSelected = useSelector((state: RootState) => state.cards.index);
+  const cardsData = useSelector(
+    (state: RootState) => state.cards.group[indexSelected].data,
+  );
   const translateXAnim = useRef(new Animated.Value(0)).current;
   const translateYAnim = useRef(new Animated.Value(0)).current;
   const rotateAnim = useRef(new Animated.Value(0)).current;
@@ -23,10 +26,13 @@ function HomeScreen() {
   const backCardWidth = useRef(
     new Animated.Value(widthPercentageToDP('79%')),
   ).current;
-  const [currentCardIndex, setCurrentCardIndex] = useState(cards.length - 1);
+  const [currentCardIndex, setCurrentCardIndex] = useState(
+    cardsData.length - 1,
+  );
   const gradientColors = useSelector(
     (state: RootState) => state.background.gradientColors,
   );
+  const dispatch = useDispatch();
 
   useEffect(() => {
     translateXAnim.setValue(0);
@@ -34,6 +40,7 @@ function HomeScreen() {
     rotateAnim.setValue(0);
     backCardTranslateY.setValue(-20);
     backCardWidth.setValue(widthPercentageToDP('79%'));
+    setCurrentCardIndex(cardsData.length - 1);
   }, [
     currentCardIndex,
     backCardWidth,
@@ -41,12 +48,14 @@ function HomeScreen() {
     translateXAnim,
     translateYAnim,
     rotateAnim,
+    cardsData,
   ]);
 
   const handleAction = (direction: Direction | null) => {
     if (!direction) return;
 
-    const finalTranslateX = direction === Direction.right ? SCREEN_WIDTH : -SCREEN_WIDTH;
+    const finalTranslateX =
+      direction === Direction.right ? SCREEN_WIDTH : -SCREEN_WIDTH;
     const finalTranslateY = 300;
     const finalRotate = direction === Direction.right ? 1 : -1;
 
@@ -75,30 +84,30 @@ function HomeScreen() {
         useNativeDriver: false,
       }),
     ]).start(() => {
-      setCards((prevCards) => prevCards.slice(0, -1));
+      dispatch(updateCards({ group: indexSelected }));
       setCurrentCardIndex((prevIndex) => prevIndex - 1);
     });
   };
 
   const renderCards = () =>
-    cards.map((item, index) => {
-      const isTopCard = index === cards.length - 1;
+    cardsData.map((item, index) => {
+      const isTopCard = index === cardsData.length - 1;
       const cardStyle = isTopCard
         ? {
-          transform: [
-            { translateX: translateXAnim },
-            { translateY: translateYAnim },
-            {
-              rotate: rotateAnim.interpolate({
-                inputRange: [-1, 0, 1],
-                outputRange: ['-45deg', '0deg', '45deg'],
-              }),
-            },
-          ],
-        }
+            transform: [
+              { translateX: translateXAnim },
+              { translateY: translateYAnim },
+              {
+                rotate: rotateAnim.interpolate({
+                  inputRange: [-1, 0, 1],
+                  outputRange: ['-45deg', '0deg', '45deg'],
+                }),
+              },
+            ],
+          }
         : {
-          transform: [{ translateY: backCardTranslateY }],
-        };
+            transform: [{ translateY: backCardTranslateY }],
+          };
 
       return (
         <StyledAnimatedView key={item.id} style={cardStyle}>
