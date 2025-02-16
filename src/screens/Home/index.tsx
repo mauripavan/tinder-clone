@@ -56,7 +56,7 @@ function HomeScreen() {
 
     const finalTranslateX =
       direction === Direction.right ? SCREEN_WIDTH : -SCREEN_WIDTH;
-    const finalTranslateY = 300;
+    const finalTranslateY = 500;
     const finalRotate = direction === Direction.right ? 1 : -1;
 
     Animated.parallel([
@@ -129,8 +129,7 @@ function HomeScreen() {
     <Layout
       isGradient
       gradientColor={gradientColors}
-      backgroundColor={theme.colors.primary}
-    >
+      backgroundColor={theme.colors.primary}>
       <MainContainer>
         <Menu fill={theme.colors.white} height={24} width={24} />
         <Filter fill={theme.colors.white} height={24} width={24} />

@@ -5,6 +5,7 @@ import Vector from './images/vector.png';
 import Person1 from './images/person1.png';
 import Person2 from './images/person2.png';
 import Person3 from './images/person3.png';
+import SuperLike from './images/super-like.png';
 
 export const images = {
   Amistad,
@@ -14,4 +15,5 @@ export const images = {
   Person1,
   Person2,
   Person3,
+  SuperLike,
 };

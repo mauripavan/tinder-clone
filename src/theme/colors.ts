@@ -9,4 +9,6 @@ export const colors = {
   gradientSecondary: ['#00BFFF', '#32DA83'],
   gradientTertiaty: ['#9072E5', '#7086E3'],
   gradientQuaternary: ['#FFB03A', '#FF6B86'],
+  maskMatch: 'rgba(255, 177, 199, 0.5)',
+  maskDismiss: 'rgba(147, 142, 144, 0.5)',
 };

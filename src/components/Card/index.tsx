@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Animated, View } from 'react-native';
 import { TextH2, TextRegular } from '@components/Typography';
 import { CONNECT_BUTTONS_DATA, MATCH_BUTTONS_DATA } from '@constants/data';
@@ -7,7 +7,11 @@ import Info from '@assets/icons/info.svg';
 import theme from '@theme/index';
 import MatchButton from '@components/MatchButton';
 import { Direction } from '@screens/Home/types';
-import { IS_ANDROID } from '@constants/index';
+import {
+  gradientBackgrounds,
+  IS_ANDROID,
+  maskColorArray,
+} from '@constants/index';
 import {
   heightPercentageToDP,
   widthPercentageToDP,
@@ -16,6 +20,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setGradientColors } from '@redux/features/backgroundSlice';
 import { setIndex } from '@redux/features/cardsSlice';
 import { RootState } from '@redux/store';
+import Mask from '@components/Mask';
 
 import { ICard } from './types';
 import {
@@ -38,12 +43,8 @@ const Card: React.FC<ICard> = ({
 }) => {
   const indexSelected = useSelector((state: RootState) => state.cards.index);
   const dispatch = useDispatch();
-
-  const gradientBackgrounds = [
-    theme.colors.gradientTertiaty,
-    theme.colors.gradientQuaternary,
-    theme.colors.gradientPrimary,
-  ];
+  const [maskColor, setMaskColor] = useState('');
+  const [itemId, setItemId] = useState(0);
 
   const handleConnectPress = (key: number) => {
     setIndex(key);
@@ -51,9 +52,19 @@ const Card: React.FC<ICard> = ({
     dispatch(setIndex(key));
   };
 
-  const handleMatchPress = (direction: Direction | null) => {
+  const handleMatchPress = ({
+    direction,
+    id,
+  }: {
+    direction: Direction | null;
+    id: number;
+  }) => {
     if (direction !== null && onSwipe) {
-      onSwipe(direction);
+      setMaskColor(maskColorArray[id]);
+      setItemId(id);
+      setTimeout(() => {
+        onSwipe(direction);
+      }, 1000);
     }
   };
 
@@ -66,9 +77,9 @@ const Card: React.FC<ICard> = ({
         height: IS_ANDROID
           ? heightPercentageToDP('88%')
           : heightPercentageToDP('81%'),
-      }}
-    >
+      }}>
       <CustomImage source={image} resizeMode="cover">
+        {maskColor ? <Mask backgroundColor={maskColor} id={itemId} /> : null}
         <SubContainer>
           <ConnectButtonsWrapper>
             {CONNECT_BUTTONS_DATA.map((item, key) => (
@@ -96,7 +107,12 @@ const Card: React.FC<ICard> = ({
                 <MatchButton
                   key={item.id}
                   item={item}
-                  onPress={() => handleMatchPress(item.direction)}
+                  onPress={() =>
+                    handleMatchPress({
+                      direction: item.direction,
+                      id: item.id,
+                    })
+                  }
                 />
               ))}
             </MatchButtonsWrapper>

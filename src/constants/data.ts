@@ -125,7 +125,7 @@ export const MATCH_BUTTONS_DATA: IMatchButtonItem[] = [
     Icon: HeartFullFilled,
     backgroundColor: theme.colors.white,
     iconColor: theme.colors.tertiary,
-    direction: null,
+    direction: Direction.right,
   },
   {
     id: 2,
