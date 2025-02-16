@@ -20,6 +20,8 @@ export default [
     'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'eslint:recommended',
+    'plugin:prettier/recommended',
   ),
   {
     languageOptions: {
@@ -99,7 +101,7 @@ export default [
         'error',
         {
           props: true,
-          ignorePropertyModificationsFor: ['state'], 
+          ignorePropertyModificationsFor: ['state'],
         },
       ],
       'object-curly-newline': 'off',
