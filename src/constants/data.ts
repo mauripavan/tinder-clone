@@ -3,7 +3,7 @@ import Person2 from '@assets/images/person2.png';
 import Person3 from '@assets/images/person3.png';
 import Amistad from '@assets/images/amistad.png';
 import Citas from '@assets/images/citas.png';
-import Relacion from '@assets/images/relación.png';
+import Relacion from '@assets/images/relacion.png';
 import Close from '@assets/icons/close.svg';
 import Check from '@assets/icons/check.svg';
 import HeartFullFilled from '@assets/icons/heart-fullfiled.svg';
