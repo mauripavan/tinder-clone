@@ -9,7 +9,7 @@ export const MainContainer = styled(View)<IMainLayoutContainer>`
   flex: 1;
   background-color: ${({ theme, color }) => color || theme.colors.primary};
   padding-top: ${({ isGradient }) =>
-    (isGradient ? 0 : Constants.statusBarHeight + 5)}px;
+    isGradient ? 0 : Constants.statusBarHeight + 5}px;
 `;
 
 export const BackgroundGradient = styled(LinearGradient)`
