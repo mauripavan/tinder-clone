@@ -21,6 +21,8 @@ export const MOCKED_RELATIONSHIP_CARDS_DATA: ICard[] = [
     age: 21,
     city: 'Surco',
     country: 'Perú',
+    gender: 'Femme',
+    interest: ['Viajar', 'Leer', 'Amistad', 'Salir de Fiesta', 'Pasarla Bien'],
   },
   {
     id: 2,
@@ -29,6 +31,8 @@ export const MOCKED_RELATIONSHIP_CARDS_DATA: ICard[] = [
     age: 22,
     city: 'Lima',
     country: 'Perú',
+    gender: 'Femme',
+    interest: ['Viajar', 'Leer', 'Amistad', 'Salir de Fiesta', 'Pasarla Bien'],
   },
   {
     id: 3,
@@ -37,6 +41,8 @@ export const MOCKED_RELATIONSHIP_CARDS_DATA: ICard[] = [
     age: 22,
     city: 'Miraflores',
     country: 'Perú',
+    gender: 'Femme',
+    interest: ['Viajar', 'Leer', 'Amistad', 'Salir de Fiesta', 'Pasarla Bien'],
   },
 ];
 
@@ -48,6 +54,8 @@ export const MOCKED_DATE_CARDS_DATA: ICard[] = [
     age: 22,
     city: 'Miraflores',
     country: 'Perú',
+    gender: 'Femme',
+    interest: ['Viajar', 'Leer', 'Amistad', 'Salir de Fiesta', 'Pasarla Bien'],
   },
   {
     id: 2,
@@ -56,6 +64,8 @@ export const MOCKED_DATE_CARDS_DATA: ICard[] = [
     age: 21,
     city: 'Surco',
     country: 'Perú',
+    gender: 'Femme',
+    interest: ['Viajar', 'Leer', 'Amistad', 'Salir de Fiesta', 'Pasarla Bien'],
   },
   {
     id: 3,
@@ -64,6 +74,8 @@ export const MOCKED_DATE_CARDS_DATA: ICard[] = [
     age: 22,
     city: 'Lima',
     country: 'Perú',
+    gender: 'Femme',
+    interest: ['Viajar', 'Leer', 'Amistad', 'Salir de Fiesta', 'Pasarla Bien'],
   },
 ];
 
@@ -75,6 +87,8 @@ export const MOCKED_FRIENDSHIP_CARDS_DATA: ICard[] = [
     age: 22,
     city: 'Lima',
     country: 'Perú',
+    gender: 'Femme',
+    interest: ['Viajar', 'Leer', 'Amistad', 'Salir de Fiesta', 'Pasarla Bien'],
   },
   {
     id: 2,
@@ -83,6 +97,8 @@ export const MOCKED_FRIENDSHIP_CARDS_DATA: ICard[] = [
     age: 22,
     city: 'Miraflores',
     country: 'Perú',
+    gender: 'FemmeF',
+    interest: ['Viajar', 'Leer', 'Amistad', 'Salir de Fiesta', 'Pasarla Bien'],
   },
   {
     id: 3,
@@ -91,6 +107,8 @@ export const MOCKED_FRIENDSHIP_CARDS_DATA: ICard[] = [
     age: 21,
     city: 'Surco',
     country: 'Perú',
+    gender: 'Femme',
+    interest: ['Viajar', 'Leer', 'Amistad', 'Salir de Fiesta', 'Pasarla Bien'],
   },
 ];
 
