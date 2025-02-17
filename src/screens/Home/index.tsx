@@ -118,6 +118,8 @@ function HomeScreen() {
             city={item.city}
             image={item.image}
             name={item.name}
+            gender={item.gender}
+            interest={item.interest}
             width={isTopCard ? undefined : backCardWidth}
             onSwipe={isTopCard ? handleAction : undefined}
           />

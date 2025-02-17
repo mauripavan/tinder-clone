@@ -21,8 +21,9 @@ import { setGradientColors } from '@redux/features/backgroundSlice';
 import { setIndex } from '@redux/features/cardsSlice';
 import { RootState } from '@redux/store';
 import Mask from '@components/Mask';
+import { useNavigation } from '@react-navigation/native';
 
-import { ICard } from './types';
+import { ICard, NavigationProp } from './types';
 import {
   BottomInfoContainer,
   ConnectButtonsWrapper,
@@ -39,10 +40,13 @@ const Card: React.FC<ICard> = ({
   city,
   country,
   width,
+  gender,
+  interest,
   onSwipe,
 }) => {
   const indexSelected = useSelector((state: RootState) => state.cards.index);
   const dispatch = useDispatch();
+  const navigation = useNavigation<NavigationProp>();
   const [maskColor, setMaskColor] = useState('');
   const [itemId, setItemId] = useState(0);
 
@@ -66,6 +70,21 @@ const Card: React.FC<ICard> = ({
         onSwipe(direction);
       }, 1000);
     }
+  };
+
+  const handleInfoPress = () => {
+    navigation.navigate('Modal', {
+      item: {
+        name,
+        age,
+        city,
+        country,
+        image,
+        gender,
+        interest,
+        handleMatchPress,
+      },
+    });
   };
 
   return (
@@ -95,7 +114,7 @@ const Card: React.FC<ICard> = ({
           <View>
             <BottomInfoContainer>
               <TextH2 color={theme.colors.white}>{`${name}, ${age}`}</TextH2>
-              <InfoButton>
+              <InfoButton onPress={handleInfoPress}>
                 <Info fill={theme.colors.white} />
               </InfoButton>
             </BottomInfoContainer>
