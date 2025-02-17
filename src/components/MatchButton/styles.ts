@@ -16,4 +16,9 @@ export const StylesPressable = styled(Pressable)<IStylesPressable>`
   background-color: ${({ theme, backgroundColor, selected }) =>
     selected ? theme.colors.tertiary : backgroundColor};
   z-index: ${({ selected }) => (selected ? 9999 : 9)};
+  elevation: 5;
+  shadow-offset: 0px 2px;
+  shadow-color: #000;
+  shadow-opacity: 0.25;
+  shadow-radius: 3.84px;
 `;
