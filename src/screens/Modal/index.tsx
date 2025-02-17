@@ -112,7 +112,7 @@ const ModalScreen: React.FC<ModalScreenProps> = ({ route }) => {
             <TextH2 color={theme.colors.dark}>Intereses</TextH2>
             <PillsContainer>
               {item.interest.map((i) => {
-                return <Pill text={i} />;
+                return <Pill key={i} text={i} />;
               })}
             </PillsContainer>
             <InfoContainer>

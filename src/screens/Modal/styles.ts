@@ -25,8 +25,8 @@ export const HeaderContainer = styled(View)`
 
 export const ExpandButtonModalContainer = styled(View)`
   position: absolute;
-  top: -20;
-  right: 20;
+  top: -20px;
+  right: 20px;
 `;
 
 export const ExpandButtonModal = styled(Pressable)`
@@ -36,27 +36,27 @@ export const ExpandButtonModal = styled(Pressable)`
   elevation: 5;
   shadow-offset: 0px 2px;
   shadow-color: ${({ theme }) => theme.colors.black};
-  shadow-opacity: 0.25;
-  shadow-radius: 3.84;
+  shadow-opacity: 0.25px;
+  shadow-radius: 3.84px;
 `;
 
 export const ContentContainer = styled(View)`
   flex: 1;
   justify-content: space-between;
-  padding-horizontal: ${wp(7)};
+  padding-horizontal: ${wp(7)}px;
 `;
 
 export const StyledTextRegular = styled(TextRegular)`
-  margin-top: -8;
+  margin-top: -8px;
 `;
 
 export const InfoContainer = styled(View)`
-  margin-top: ${wp(4)};
+  margin-top: ${wp(4)}px;
 `;
 
 export const PillsContainer = styled(View)`
   flex-direction: row;
-  gap: ${wp(2.5)};
+  gap: ${wp(2.5)}px;
   flex-wrap: wrap;
 `;
 
