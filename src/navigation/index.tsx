@@ -1,14 +1,20 @@
+import React from 'react';
 import {
   NavigationContainer as ReactNavigationContainer,
   useNavigationContainerRef,
 } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React from 'react';
+import {
+  TransitionSpecs,
+  CardStyleInterpolators,
+  createStackNavigator,
+} from '@react-navigation/stack';
+import ModalScreen from '@screens/Modal';
+import HomeScreen from '@screens/Home';
 
-import HomeScreen from '../screens/Home';
+import { RootStackParamList } from './types';
 
 const NavigationContainer: React.FC = () => {
-  const Stack = createNativeStackNavigator();
+  const Stack = createStackNavigator<RootStackParamList>();
 
   const navigationRef = useNavigationContainerRef();
 
@@ -19,6 +25,18 @@ const NavigationContainer: React.FC = () => {
           name="Home"
           component={HomeScreen}
           options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Modal"
+          component={ModalScreen}
+          options={{
+            cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
+            transitionSpec: {
+              open: TransitionSpecs.TransitionIOSSpec,
+              close: TransitionSpecs.TransitionIOSSpec,
+            },
+            header: () => null,
+          }}
         />
       </Stack.Navigator>
     </ReactNavigationContainer>
